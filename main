@@ -1,0 +1,171 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+main(void)
+{
+	int a[20],num,bingo[10][10];
+	int i,j,k,h,ans,u,p,flag = 0,flag1 = 0,count,count1;
+	int ans1;
+	do
+	{
+	printf("Menu : \n");
+	printf("1.) Create a bingo table \n");
+	printf("2.) Generate random numbers(to play the game)\n");
+	printf("3.) Clear Screen\n");
+	printf("4.) Exit\n");
+	scanf("%d",&ans);
+	switch(ans)
+	{
+		case 1:
+			printf("Enter the number of rows and colums(from 2 to 7) : ");
+			scanf("%d",&u);
+			if(u == 2)
+			{
+				num = 4;
+			}
+			else if(u == 3)
+			{
+				num = 9;
+			}
+			else if(u == 4)
+			{
+				num = 16;
+			}
+			else if(u == 5)
+			{
+				num = 25;
+			}
+			else if(u == 6)
+			{
+				num = 36;
+			}
+			else if(u == 7)
+			{
+				num = 49;
+			}
+		for(i=0;i<num;i++)
+		{
+			a[i] = rand()%num+1;
+			for(j=0;j<i;j++)
+			{
+				if(a[i] == a[j])
+				{
+				i--;
+				break;
+			}
+			}
+		}
+		i = 0;
+		for(k=0;k<u;k++)
+		{
+			for(h=0;h<u;h++)
+			{
+				bingo[k][h] = a[i++];
+			}
+		}
+		for(k=0;k<u;k++)
+		{
+			for(h=0;h<u;h++)
+			{
+				printf("%d\t",bingo[k][h]);
+			}
+			printf("\n");
+		}
+		break;
+		case 2:
+			do
+			{
+			p = rand()%num+1;
+			printf("\n\bNo. is : %d\n",p);
+			for(k=0;k<u;k++)
+			{
+				for(h=0;h<u;h++)
+				{
+					if(bingo[k][h] == p)
+					{
+						bingo[k][h] = 0;
+					}
+					printf("%d\t",bingo[k][h]);
+				}
+			printf("\n");
+			}
+			
+				//checking columns
+				count = 0;
+				for(h=0;h<u;h++)
+				{
+					flag=0;
+					for(k=0;k<u;k++)
+					{
+						if(bingo[k][h] != 0){
+							flag= 1;
+							break;
+						}
+					}
+					if(flag==1)
+					{
+						count++;
+					}
+				}
+				//checking rows
+				count1 = 0;
+				for(k=0;k<u;k++)
+				{
+					flag1 = 0;
+					for(h=0;h<u;h++)
+					{
+						if(bingo[k][h] != 0){
+							flag1= 1;
+							break;
+						}
+					}
+					if(flag1==1)
+					{
+						count1++;
+					}
+				}
+				for(k=0;k<u;k++)
+				{
+					for(j=0;j<u;j++)
+					{
+						if(flag == 0)
+					{
+				    printf("Column %d is filled \n",count);
+				}
+				if(flag1 == 0)
+					{
+					printf("Row %d is filled \n",count1);
+					}
+				}
+			}
+				/*
+				if(flag == 1)
+				{
+				    printf("Column %d is not filled \n",count);
+				}
+				if(flag1 == 1)
+				{
+					printf("Row %d is not filled \n",count1);
+				}
+				if(flag == 0)
+				{
+				    printf("Column %d is filled \n",count);
+				}
+				if(flag1 == 0)
+				{
+					printf("Row %d is filled \n",count1);
+				*/
+			printf("Press '1' countinue :");
+			scanf("%d",&ans1);
+		}while(ans1 == 1);
+			break;
+	
+		case 3:
+			system("cls");
+			break;	
+		case 4:
+			exit(0);
+			break;
+}
+}while(ans != 10);
+}
