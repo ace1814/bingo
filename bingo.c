@@ -3,8 +3,9 @@
 #include<time.h>
 main(void)
 {
+	system("COLOR B4");
 	int a[20],num,bingo[10][10];
-	int i,j,k,h,ans,u,p,flag = 0,flag1 = 0,count,count1,o=0;
+	int i,j,k,h,ans,u,p,sum=0,flag = 0,flag1 = 0,count,count1;
 	int ans1;
 	do
 	{
@@ -89,160 +90,155 @@ main(void)
 				}
 			printf("\n");
 			}
-			
-				if(num==4)
+			if(num==4)
 			{
-			if(bingo[0][0]==0 && bingo[0][1]==0){
-			printf("Row 1 is filled\n");
-			o = o+1;
-		}
-			if(bingo[1][0]==0 && bingo[1][1]==0){
-			printf("Row 2 is filled\n");
-			o = o+1;
-		}
-			if(bingo[0][0]==0 && bingo[1][0]==0){
-			printf("Column 1 is filled\n");
-			o = o + 1;
-		}
-			if(bingo[0][1]==0 && bingo[1][1]==0){
-			printf("Column 2 is filled\n");
-			o = o + 1;
-		}
-		if(o==2)
-		{
-			printf("BINGO !!\n");
-			exit(0);
-		}
+				if(bingo[0][0]==0 && bingo[0][1]==0)
+				printf("Row 1 is filled\n");
+				if(bingo[1][0]==0 && bingo[1][1]==0)
+				printf("Row 2 is filled\n");
+				if(bingo[0][0]==0 && bingo[1][0]==0)
+				printf("Column 1 is filled\n");
+				if(bingo[0][1]==0 && bingo[1][1]==0)
+				printf("Column 2 is filled\n");
+				for(i=0;i<2;i++)
+				{
+					for(j=0;j<2;j++)
+					{
+						if(bingo[i][j]==0)
+						sum=sum+1;
+					}
+				}
+				if(sum>=3)
+				printf("Bingo!\n");
 			}
 			else if(num==9)
 			{
-			if(bingo[0][0]==0 && bingo[0][1]==0 && bingo[0][2]==0){
-			printf("Row 1 is filled\n");
-			o = o + 1;
-		}
-			if(bingo[1][0]==0 && bingo[1][1]==0 && bingo[1][2]==0){
-			printf("Row 2 is filled\n");
-			o = o + 1;
-		}
-			if(bingo[2][0]==0 && bingo[2][1]==0 && bingo[2][2]==0){
-			printf("Row 3 is filled\n");
-			o = o + 1;
-		}
-			if(bingo[0][0]==0 && bingo[1][0]==0 && bingo[2][0]==0){
-			printf("Column 1 is filled\n");
-			o = o + 1;
-		}
-			if(bingo[0][1]==0 && bingo[1][1]==0 && bingo[3][1]==0){
-			printf("Column 2 is filled\n");
-			o = o + 1;
-		}
-			if(bingo[0][2]==0 && bingo[1][2]==0 && bingo[2][2]==0){
-			printf("Column 3 is filled\n");
-			o = o + 1;
-	}
-			if(o==4)
-			{
-				printf("BINGO !!!\n");
-				exit(0);
+				sum=0;
+				if(bingo[0][0]==0 && bingo[0][1]==0 && bingo[0][2]==0)
+				{sum=sum+1;
+				printf("Row 1 is filled\n");
+				}
+				if(bingo[1][0]==0 && bingo[1][1]==0 && bingo[1][2]==0)
+				{sum=sum+1;
+				printf("Row 2 is filled\n");
+				}
+				if(bingo[2][0]==0 && bingo[2][1]==0 && bingo[2][2]==0)
+				{sum=sum+1;
+				printf("Row 3 is filled\n");
+				}
+				if(bingo[0][0]==0 && bingo[1][0]==0 && bingo[2][0]==0)
+				{sum=sum+1;
+				printf("Column 1 is filled\n");
+				}
+				if(bingo[0][1]==0 && bingo[1][1]==0 && bingo[3][1]==0)
+				{sum=sum+1;
+				printf("Column 2 is filled\n");
+				}
+				if(bingo[0][2]==0 && bingo[1][2]==0 && bingo[2][2]==0)
+				{sum=sum+1;
+				printf("Column 3 is filled\n");
+				}
+				if(sum>=3)
+				printf("Bingo!\n");
 			}
-			
-		}
 			else if(num==16)
 			{
-			if(bingo[0][0]==0 && bingo[0][1]==0 && bingo[0][2]==0 && bingo[0][3]==0){
-			printf("Row 1 is filled\n");
-			o = o + 1;
-		}
-			if(bingo[1][0]==0 && bingo[1][1]==0 && bingo[1][2]==0 && bingo[1][3]==0){
-			printf("Row 2 is filled\n");
-			o = o + 1;
-		}
-			if(bingo[2][0]==0 && bingo[2][1]==0 && bingo[2][2]==0 && bingo[2][3]==0){			
-			printf("Row 3 is filled\n");
-			o = o + 1;
-		}
-			if(bingo[3][0]==0 && bingo[3][1]==0 && bingo[3][2]==0 && bingo[3][3]==0){			
-			printf("Row 4 is filled\n");
-			o = o + 1;
-		}
-			if(bingo[0][0]==0 && bingo[1][0]==0 && bingo[2][0]==0 && bingo[3][0]==0){
-			printf("Column 1 is filled\n");
-			o = o + 1;
-		}
-			if(bingo[0][1]==0 && bingo[1][1]==0 && bingo[2][1]==0 && bingo[3][1]==0){
-			printf("Column 2 is filled\n");
-			o = o + 1;
-		}
-			if(bingo[0][2]==0 && bingo[1][2]==0 && bingo[2][2]==0 && bingo[3][2]==0){
-			printf("Column 3 is filled\n");
-			o = o + 1;
-		}
-			if(bingo[0][3]==0 && bingo[1][3]==0 && bingo[2][3]==0 && bingo[3][3]==0){
-			printf("Column 4 is filled\n");
-			o = o + 1;
-		}
-			if(o==4)
-			{
-				printf("BINGO !!!!");
-			}
+				sum=0;
+				if(bingo[0][0]==0 && bingo[0][1]==0 && bingo[0][2]==0 && bingo[0][3]==0)
+				{sum=sum+1;
+				printf("Row 1 is filled\n");
+				}
+				if(bingo[1][0]==0 && bingo[1][1]==0 && bingo[1][2]==0 && bingo[1][3]==0)
+				{sum=sum+1;
+				printf("Row 2 is filled\n");
+				}
+				if(bingo[2][0]==0 && bingo[2][1]==0 && bingo[2][2]==0 && bingo[2][3]==0)
+				{sum=sum+1;
+				printf("Row 3 is filled\n");
+				}
+				if(bingo[3][0]==0 && bingo[3][1]==0 && bingo[3][2]==0 && bingo[3][3]==0)
+				{sum=sum+1;
+				printf("Row 4 is filled\n");
+				}
+				if(bingo[0][0]==0 && bingo[1][0]==0 && bingo[2][0]==0 && bingo[3][0]==0)
+				{sum=sum+1;
+				printf("Column 1 is filled\n");
+				}
+				if(bingo[0][1]==0 && bingo[1][1]==0 && bingo[2][1]==0 && bingo[3][1]==0)
+				{sum=sum+1;
+				printf("Column 2 is filled\n");
+				}
+				if(bingo[0][2]==0 && bingo[1][2]==0 && bingo[2][2]==0 && bingo[3][2]==0)
+				{sum=sum+1;
+				printf("Column 3 is filled\n");
+				}
+				if(bingo[0][3]==0 && bingo[1][3]==0 && bingo[2][3]==0 && bingo[3][3]==0)
+				{sum=sum+1;
+				printf("Column 4 is filled\n");
+				}
+				if(sum>=4)
+				printf("Bingo!\n");
 			}
 			else if(num==25)
 			{
-			if(bingo[0][0]==0 && bingo[0][1]==0 && bingo[0][2]==0 && bingo[0][3]==0 && bingo[0][4]==0){
-			printf("Row 1 is filled\n");
-			o = o + 1;
-		}
-			if(bingo[1][0]==0 && bingo[1][1]==0 && bingo[1][2]==0 && bingo[1][3]==0 && bingo[1][4]==0){
-			printf("Row 2 is filled\n");
-			o = o + 1;
-		}
-			if(bingo[2][0]==0 && bingo[2][1]==0 && bingo[2][2]==0 && bingo[2][3]==0 && bingo[2][4]==0){
-			printf("Row 3 is filled\n");
-			o = o + 1;
-		}
-			if(bingo[3][0]==0 && bingo[3][1]==0 && bingo[3][2]==0 && bingo[3][3]==0 && bingo[3][4]==0){
-			printf("Row 4 is filled\n");
-			o = o + 1;
-		}
-			if(bingo[4][0]==0 && bingo[4][1]==0 && bingo[4][2]==0 && bingo[4][3]==0 && bingo[4][4]==0){
-			printf("Row 5 is filled\n");
-			o = o + 1;
-		}
-			if(bingo[0][0]==0 && bingo[1][0]==0 && bingo[2][0]==0 && bingo[3][0]==0 && bingo[4][0]==0){
-			printf("Column 1 is filled\n");
-			o = o + 1;
-		}
-			if(bingo[0][1]==0 && bingo[1][1]==0 && bingo[2][1]==0 && bingo[3][1]==0 && bingo[4][1]==0){
-			printf("Column 2 is filled\n");
-			o = o + 1;
-		}
-			if(bingo[0][2]==0 && bingo[1][2]==0 && bingo[2][2]==0 && bingo[3][2]==0 && bingo[4][2]==0){
-			printf("Column 3 is filled\n");
-			o = o + 1;
-		}
-			if(bingo[0][3]==0 && bingo[1][3]==0 && bingo[2][3]==0 && bingo[3][3]==0 && bingo[4][3]==0){
-			printf("Column 4 is filled\n");
-			o = o + 1;
-		}
-			if(bingo[0][4]==0 && bingo[1][4]==0 && bingo[2][4]==0 && bingo[3][4]==0 && bingo[4][4]==0){
-			printf("Column 5 is filled\n");
-			o = o + 1;
-		}
-		if(o == 5)
-		{
-			printf("BINGO !!!!!");
-		}
+				sum=0;
+				if(bingo[0][0]==0 && bingo[0][1]==0 && bingo[0][2]==0 && bingo[0][3]==0 && bingo[0][4]==0)
+				{sum=sum+1;
+				printf("Row 1 is filled\n");
+				}
+				if(bingo[1][0]==0 && bingo[1][1]==0 && bingo[1][2]==0 && bingo[1][3]==0 && bingo[1][4]==0)
+				{sum=sum+1;
+				printf("Row 2 is filled\n");
+				}
+				if(bingo[2][0]==0 && bingo[2][1]==0 && bingo[2][2]==0 && bingo[2][3]==0 && bingo[2][4]==0)
+				{sum=sum+1;
+				printf("Row 3 is filled\n");
+				}
+				if(bingo[3][0]==0 && bingo[3][1]==0 && bingo[3][2]==0 && bingo[3][3]==0 && bingo[3][4]==0)
+				{sum=sum+1;
+				printf("Row 4 is filled\n");
+				}
+				if(bingo[4][0]==0 && bingo[4][1]==0 && bingo[4][2]==0 && bingo[4][3]==0 && bingo[4][4]==0)
+				{sum=sum+1;
+				printf("Row 5 is filled\n");
+				}
+				if(bingo[0][0]==0 && bingo[1][0]==0 && bingo[2][0]==0 && bingo[3][0]==0 && bingo[4][0]==0)
+				{sum=sum+1;
+				printf("Column 1 is filled\n");
+				}
+				if(bingo[0][1]==0 && bingo[1][1]==0 && bingo[2][1]==0 && bingo[3][1]==0 && bingo[4][1]==0)
+				{sum=sum+1;
+				printf("Column 2 is filled\n");
+				}
+				if(bingo[0][2]==0 && bingo[1][2]==0 && bingo[2][2]==0 && bingo[3][2]==0 && bingo[4][2]==0)
+				{sum=sum+1;
+				printf("Column 3 is filled\n");
+				}
+				if(bingo[0][3]==0 && bingo[1][3]==0 && bingo[2][3]==0 && bingo[3][3]==0 && bingo[4][3]==0)
+				{sum=sum+1;
+				printf("Column 4 is filled\n");
+				}
+				if(bingo[0][4]==0 && bingo[1][4]==0 && bingo[2][4]==0 && bingo[3][4]==0 && bingo[4][4]==0)
+				{sum=sum+1;
+				printf("Column 5 is filled\n");
+				}
+				if(sum>=5)
+				printf("Bingo!\n");
 			}
-			printf("Press '1' to continue : ");
+			printf("Press '1' countinue :");
 			scanf("%d",&ans1);
 		}while(ans1 == 1);
-		break;
+			break;
+	
 		case 3:
 			system("cls");
 			break;	
 		case 4:
 			exit(0);
 			break;
+		default:
+			printf("Invalid choice!\n");
+			break;	
 }
-}while(ans != 10);
+}while(ans != 4);
 }
