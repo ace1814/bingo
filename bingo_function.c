@@ -1,14 +1,15 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<time.h>
+int bingo[10][10];
 void bing(int,int);
 void play(int,int);
+void color(int);
 void cls(void);
 void end(void);
 main(void)
 {
-	system("COLOR 43");
-	int a[20],num,bingo[10][10];
+	int a[20],num;
 	int i,j,k,h,ans,ans1,u,p,sum=0,count=0;
 	do
 	{
@@ -66,7 +67,7 @@ main(void)
 }
 void bing(int ui,int numi)
 {
-	int a[20],num,bingo[10][10];
+	int a[20],num;
 	int i,j,k,h,ans,ans1,u,p,sum=0,count=0;
 	for(i=0;i<numi;i++)
 				{
@@ -99,10 +100,12 @@ void bing(int ui,int numi)
 }
 void play(int ui,int numi)
 {
-	int a[20],num,bingo[10][10];
-	int i,j,k,h,ans,ans1,u,p,sum=0,count=0;
+	int a[20],num;
+	int i,j,k,h,ans,ans1,u,p,sum=0,count=0,count1=0;
 	do
 				{
+					color(count1);
+					count1=count1+1;
 					p = rand()%numi+1;
 					printf("\n\bNo. is : %d\n",p);
 					for(k=0;k<ui;k++)
@@ -295,6 +298,29 @@ void play(int ui,int numi)
 					if(ans1==4)
 					system("cls");
 				}while(ans1 == 1);
+}
+void color(int count1)
+{
+	if(count1%10==0||count1==0)
+	system("COLOR 34");
+	else if(count1%10==1||count1==1)
+	system("COLOR F2");
+	else if(count1%10==2||count1==2)
+	system("COLOR E6");
+	else if(count1%10==3||count1==3)
+	system("COLOR A0");
+	else if(count1%10==4||count1==4)
+	system("COLOR B4");
+	else if(count1%10==5||count1==5)
+	system("COLOR C1");
+	else if(count1%10==6||count1==6)
+	system("COLOR F3");
+	else if(count1%10==7||count1==7)
+	system("COLOR 71");
+	else if(count1%10==8||count1==8)
+	system("COLOR B4");
+	else if(count1%10==9||count1==9)
+	system("COLOR 91");
 }
 void cls()
 {
