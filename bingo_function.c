@@ -5,23 +5,31 @@ int bingo[10][10];
 void bing(int,int);
 void play(int,int);
 void color(int);
+void hplay(void);
 void cls(void);
 void end(void);
 main(void)
 {
 	int a[20],num;
 	int i,j,k,h,ans,ans1,u,p,sum=0,count=0;
+	printf("*********************************************\n");
+	printf("            Welocme to BINGO!!\n");
+	printf("*********************************************\n");
 	do
 	{
-		printf("Menu : \n");
-		printf("1.) Create a bingo table \n");
-		printf("2.) Play the game \n");
-		printf("3.) Clear Screen\n");
-		printf("4.) Exit\n");
+		printf("\t\tMenu : \n");
+		printf("\t1.) How to play the game\n");
+		printf("\t2.) Create a bingo table \n");
+		printf("\t3.) Play the game \n");
+		printf("\t4.) Clear Screen\n");
+		printf("\t5.) Exit\n");
 		scanf("%d",&ans);
 		switch(ans)
 		{
 			case 1:
+				hplay();
+				break;
+			case 2:
 				printf("Enter the number of rows and colums(from 2 to 5) : ");
 				scanf("%d",&u);
 				if(u==2||u==3||u==4||u==5)
@@ -50,20 +58,19 @@ main(void)
 				}
 				bing(u,num);
 				break;
-			case 2:
+			case 3:
 				play(u,num);
 				break;
-			case 3:
-				cls();
-				break;	
 			case 4:
+				system("cls");
+				break;	
+			case 5:
 				end();
-				break;
 			default:
 				printf("Invalid choice!\n");
 				break;	
 		}
-	}while(ans != 4);
+	}while(ans != 5);
 }
 void bing(int ui,int numi)
 {
@@ -321,6 +328,20 @@ void color(int count1)
 	system("COLOR B4");
 	else if(count1%10==9||count1==9)
 	system("COLOR 91");
+}
+void hplay()
+{
+	printf("\nNow we will see how to play \n");
+	printf("this game : \n");
+	printf("1.)At first generate a BINGO table by choosing option '1' \n");
+	printf("2.)Enter the number of rows of bingo table you want to play with\n");
+	printf("3.)Automatically a BINGO table is generated\n");
+	printf("4.)Now choose option '2' to play the game\n");
+	printf("5.)As you press option '2' a random number is generated and that number gets cut \n cut number is denoted by 0 in the BINGO table\n");
+	printf("6.)Keep pressing 1 and new random number will be generated and cut from bingo table \n");
+	printf("7.)As a row or column is cut fully, it will be shown which one of them is cut\n");
+	printf("8.)As more rows and colums are cut after certain row and colums \n are cut(depending on your bingo table)\n");
+	printf("9.)You will win and number of steps you won in will be shown\n\n");
 }
 void cls()
 {
