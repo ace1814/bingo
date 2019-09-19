@@ -1,6 +1,9 @@
+//Topic-Function with Arrays
+//Question- Bingo game (Chapter-Arrays)
 #include<stdio.h>
 #include<stdlib.h>
 #include<time.h>
+#include <windows.h>
 int bingo[10][10];
 void bing(int,int);
 void play(int,int);
@@ -10,6 +13,7 @@ void cls(void);
 void end(void);
 main(void)
 {
+	SetConsoleTitle("Bingo!");
 	char ans;
 	int u,num;
 	printf("*********************************************\n");
@@ -30,29 +34,29 @@ main(void)
 				hplay();
 				break;
 			case '2':
-				printf("Enter the number of rows and colums(from 2 to 5) : ");
+				printf("\nEnter the number of rows and colums(from 2 to 5) : ");
 				scanf("%d",&u);
 				if(u==2||u==3||u==4||u==5)
 				{
 				
-					if(u == 2)
-					{
-						num = 4;
-					}
-					else if(u == 3)
-					{
-						num = 9;
-					}
-					else if(u == 4)
-					{
-						num = 16;
-					}
-					else if(u == 5)
-					{
-						num = 25;
-					}
-					bing(u,num);
-					}
+				if(u == 2)
+				{
+					num = 4;
+				}
+				else if(u == 3)
+				{
+					num = 9;
+				}
+				else if(u == 4)
+				{
+					num = 16;
+				}
+				else if(u == 5)
+				{
+					num = 25;
+				}
+				bing(u,num);
+			}
 				else
 				{
 					printf("Invalid choice!\nTry again\n");
@@ -77,38 +81,38 @@ void bing(int ui,int numi)
 {
 	int a[20],i,j,k,h,p,sum=0;
 	for(i=0;i<numi;i++)
-	{
-		a[i] = rand()%numi+1;
-		for(j=0;j<i;j++)
-		{
-			if(a[i] == a[j])
-			{
-			i--;
-			break;
-		}
-		}
-	}
-	i = 0;
-	for(k=0;k<ui;k++)
-	{
-		for(h=0;h<ui;h++)
-		{
-			bingo[k][h] = a[i++];
-		}
-	}
-	for(k=0;k<ui;k++)
-	{
-		for(h=0;h<ui;h++)
-		{
-			printf("%d\t",bingo[k][h]);
-		}
-		printf("\n");
-	}
+				{
+					a[i] = rand()%numi+1;
+					for(j=0;j<i;j++)
+					{
+						if(a[i] == a[j])
+						{
+						i--;
+						break;
+					}
+					}
+				}
+				i = 0;
+				for(k=0;k<ui;k++)
+				{
+					for(h=0;h<ui;h++)
+					{
+						bingo[k][h] = a[i++];
+					}
+				}
+				for(k=0;k<ui;k++)
+				{
+					for(h=0;h<ui;h++)
+					{
+						printf("%d\t",bingo[k][h]);
+					}
+					printf("\n");
+				}
 }
 void play(int ui,int numi)
 {
 	int i,j,k,h,p,sum=0,count=0,count1=0;
-	char ans1;
+	char ans1,ans2;
 	do
 	{
 		color(count1);
@@ -131,13 +135,13 @@ void play(int ui,int numi)
 		{
 			sum=0;
 			if(bingo[0][0]==0 && bingo[0][1]==0)
-			printf("Row 1 is filled\n");
+			printf("\tRow 1 is filled\n");
 			if(bingo[1][0]==0 && bingo[1][1]==0)
-			printf("Row 2 is filled\n");
+			printf("\tRow 2 is filled\n");
 			if(bingo[0][0]==0 && bingo[1][0]==0)
-			printf("Column 1 is filled\n");
+			printf("\tColumn 1 is filled\n");
 			if(bingo[0][1]==0 && bingo[1][1]==0)
-			printf("Column 2 is filled\n");
+			printf("\tColumn 2 is filled\n");
 			for(i=0;i<2;i++)
 			{
 				for(j=0;j<2;j++)
@@ -148,7 +152,7 @@ void play(int ui,int numi)
 			}
 			if(sum>=3)
 			{
-				printf("Bingo! in %d steps\nNot Bad!\n",count+1);
+				printf("Bingo!!!!\n\tIn %d steps\n\tNot Bad!\n",count+1);
 			}
 		}
 		else if(numi==9)
@@ -157,37 +161,36 @@ void play(int ui,int numi)
 			if(bingo[0][0]==0 && bingo[0][1]==0 && bingo[0][2]==0)
 			{
 				sum=sum+1;
-				printf("Row 1 is filled\n");
+				printf("\tRow 1 is filled\n");
 			}
 			if(bingo[1][0]==0 && bingo[1][1]==0 && bingo[1][2]==0)
 			{
 				sum=sum+1;
-				printf("Row 2 is filled\n");
+				printf("\tRow 2 is filled\n");
 			}
 			if(bingo[2][0]==0 && bingo[2][1]==0 && bingo[2][2]==0)
 			{
 				sum=sum+1;
-				printf("Row 3 is filled\n");
+				printf("\tRow 3 is filled\n");
 			}
 			if(bingo[0][0]==0 && bingo[1][0]==0 && bingo[2][0]==0)
 			{
 				sum=sum+1;
-				printf("Column 1 is filled\n");
+				printf("\tColumn 1 is filled\n");
 			}
 			if(bingo[0][1]==0 && bingo[1][1]==0 && bingo[3][1]==0)
 			{
 				sum=sum+1;
-				printf("Column 2 is filled\n");
+				printf("\tColumn 2 is filled\n");
 			}
 			if(bingo[0][2]==0 && bingo[1][2]==0 && bingo[2][2]==0)
 			{
 				sum=sum+1;
-				printf("Column 3 is filled\n");
+				printf("\tColumn 3 is filled\n");
 			}
 			if(sum>=3)
 			{
-				system("cls");
-				printf("Bingo! in %d steps\nNot Bad!\n",count+1);
+				printf("Bingo!!!!\n\tIn %d steps\n\tNot Bad!\n",count+1);
 			}
 		}
 		else if(numi==16)
@@ -196,46 +199,46 @@ void play(int ui,int numi)
 			if(bingo[0][0]==0 && bingo[0][1]==0 && bingo[0][2]==0 && bingo[0][3]==0)
 			{
 				sum=sum+1;
-				printf("Row 1 is filled\n");
+				printf("\tRow 1 is filled\n");
 			}
 			if(bingo[1][0]==0 && bingo[1][1]==0 && bingo[1][2]==0 && bingo[1][3]==0)
 			{
 				sum=sum+1;
-				printf("Row 2 is filled\n");
+				printf("\tRow 2 is filled\n");
 			}
 			if(bingo[2][0]==0 && bingo[2][1]==0 && bingo[2][2]==0 && bingo[2][3]==0)
 			{
 				sum=sum+1;
-				printf("Row 3 is filled\n");
+				printf("\tRow 3 is filled\n");
 			}
 			if(bingo[3][0]==0 && bingo[3][1]==0 && bingo[3][2]==0 && bingo[3][3]==0)
 			{
 				sum=sum+1;
-				printf("Row 4 is filled\n");
+				printf("\tRow 4 is filled\n");
 			}
 			if(bingo[0][0]==0 && bingo[1][0]==0 && bingo[2][0]==0 && bingo[3][0]==0)
 			{
 				sum=sum+1;
-				printf("Column 1 is filled\n");
+				printf("\tColumn 1 is filled\n");
 			}
 			if(bingo[0][1]==0 && bingo[1][1]==0 && bingo[2][1]==0 && bingo[3][1]==0)
 			{
 				sum=sum+1;
-				printf("Column 2 is filled\n");
+				printf("\tColumn 2 is filled\n");
 			}
 			if(bingo[0][2]==0 && bingo[1][2]==0 && bingo[2][2]==0 && bingo[3][2]==0)
 			{
 				sum=sum+1;
-				printf("Column 3 is filled\n");
+				printf("\tColumn 3 is filled\n");
 			}
 			if(bingo[0][3]==0 && bingo[1][3]==0 && bingo[2][3]==0 && bingo[3][3]==0)
 			{
 				sum=sum+1;
-				printf("Column 4 is filled\n");
+				printf("\tColumn 4 is filled\n");
 			}
 			if(sum>=4)
 			{
-				printf("Bingo! in %d steps\nNot Bad!\n",count+1);
+				printf("Bingo!!!!\n\tIn %d steps\n\tNot Bad!\n",count+1);
 			}
 		}
 		else if(numi==25)
@@ -244,56 +247,56 @@ void play(int ui,int numi)
 			if(bingo[0][0]==0 && bingo[0][1]==0 && bingo[0][2]==0 && bingo[0][3]==0 && bingo[0][4]==0)
 			{
 				sum=sum+1;
-				printf("Row 1 is filled\n");
+				printf("\tRow 1 is filled\n");
 			}
 			if(bingo[1][0]==0 && bingo[1][1]==0 && bingo[1][2]==0 && bingo[1][3]==0 && bingo[1][4]==0)
 			{
 				sum=sum+1;
-				printf("Row 2 is filled\n");
+				printf("\tRow 2 is filled\n");
 			}
 			if(bingo[2][0]==0 && bingo[2][1]==0 && bingo[2][2]==0 && bingo[2][3]==0 && bingo[2][4]==0)
 			{
 				sum=sum+1;
-				printf("Row 3 is filled\n");
+				printf("\tRow 3 is filled\n");
 			}
 			if(bingo[3][0]==0 && bingo[3][1]==0 && bingo[3][2]==0 && bingo[3][3]==0 && bingo[3][4]==0)
 			{
 				sum=sum+1;
-				printf("Row 4 is filled\n");
+				printf("\tRow 4 is filled\n");
 			}
 			if(bingo[4][0]==0 && bingo[4][1]==0 && bingo[4][2]==0 && bingo[4][3]==0 && bingo[4][4]==0)
 			{
 				sum=sum+1;
-				printf("Row 5 is filled\n");
+				printf("\tRow 5 is filled\n");
 			}
 			if(bingo[0][0]==0 && bingo[1][0]==0 && bingo[2][0]==0 && bingo[3][0]==0 && bingo[4][0]==0)
 			{
 				sum=sum+1;
-				printf("Column 1 is filled\n");
+				printf("\tColumn 1 is filled\n");
 			}
 			if(bingo[0][1]==0 && bingo[1][1]==0 && bingo[2][1]==0 && bingo[3][1]==0 && bingo[4][1]==0)
 			{
 				sum=sum+1;
-				printf("Column 2 is filled\n");
+				printf("\tColumn 2 is filled\n");
 			}
 			if(bingo[0][2]==0 && bingo[1][2]==0 && bingo[2][2]==0 && bingo[3][2]==0 && bingo[4][2]==0)
 			{
 				sum=sum+1;
-				printf("Column 3 is filled\n");
+				printf("\tColumn 3 is filled\n");
 			}
 			if(bingo[0][3]==0 && bingo[1][3]==0 && bingo[2][3]==0 && bingo[3][3]==0 && bingo[4][3]==0)
 			{
 				sum=sum+1;
-				printf("Column 4 is filled\n");
+				printf("\tColumn 4 is filled\n");
 			}
 			if(bingo[0][4]==0 && bingo[1][4]==0 && bingo[2][4]==0 && bingo[3][4]==0 && bingo[4][4]==0)
 			{
 				sum=sum+1;
-				printf("Column 5 is filled\n");
+				printf("\tColumn 5 is filled\n");
 			}
 			if(sum>=5)
 			{
-				printf("Bingo! in %d steps\nNot Bad!\n",count+1);
+				printf("Bingo!!!!\n\tIn %d steps\n\tNot Bad!\n",count+1);
 			}
 		}
 		printf("Press '1' countinue\n");
@@ -347,5 +350,11 @@ void cls()
 }
 void end()
 {
+	printf("\n\t\t\t\t***************");
+	printf("\n\t\t\t\t*             *");
+	printf("\n\t\t\t\t*SEE YOU SOON!*");
+	printf("\n\t\t\t\t*             *");
+	printf("\n\t\t\t\t***************");
+	printf("\n<--------------------------------------------------------------------------------------------------------------------->");
 	exit(0);
 }
